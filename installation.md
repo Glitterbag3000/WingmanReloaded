@@ -21,12 +21,13 @@
 
 ## Choose Aspect Ratio
 
-> Determine the aspect ratio of your game resolution. Use [**Aspect Ratio Calulator**](https://andrew.hedges.name/experiments/aspect_ratio/) to determine which aspect ratio to choose.
-* Standard is 16:9 aspect ratio, and is default
-* Classic is 4:3 ( 12:9 )
-* Cinematic is 21:9
-  * Also a submitted 43:18 aspect ( 21.5:9 )
-* UltraWide is 32:9
+> Determine the aspect ratio of your game resolution. Use [**Aspect Ratio Calulator**](https://andrew.hedges.name/experiments/aspect_ratio/) to determine which aspect ratio to choose. 
+
+> The aspect ratio is a fraction based on the height and width of your screen
+
+* When the game is running, pressing Get Ratio will show a messagebox with a matching aspect ratio
+* Mouse over the dropdown box to see the list of available aspect ratio
+* If your aspect ratio is not matching with one of the ones within the script, you will need to use the link above to determine which is the closest ratio to your own.
 
    
 
@@ -70,11 +71,11 @@
 * The simplest for newer players is probably the Wizard.
   * It allows you to select several samples to do at once.
   * It will prompt you with what to do for each step.
-* Individual Sample is the other method, and its easier when you only want to recalibrate one or two gamestates.
+* Individual Sample is the other method, and its easier when you only want to recalibrate one or two Gamestates.
   * Mouse over each button to see a discription.
-  * Click the appropriate sample button while the gamestate is active, read the popup and continue.
+  * Click the appropriate sample button while the Gamestate is active, read the popup and continue.
 
-> Once you have done your calibrations, click Show Gamestates button to confirm everything is working. When changing game panels the corresponding gamestate should light up. If everything has lit up green the script is ready to work.
+> Once you have done your calibrations, look at your Gamestates in the Main tab to confirm everything is working. When changing game panels the corresponding Gamestate should light up. If everything has lit up green the script is ready to work.
 
    
 
@@ -84,7 +85,12 @@
 * Adjust the area to change where it will scan the screenshot
 * Change the "Base Color" to match against
 * Change the variance from the base color it will consider matching
+* Use the coord tool to capture an average color to use
+* Avoid averaging the entire area, instead average the colors of a strip within the area that has little variance.
 
+> All changes will occur in real time, but all changes will revert when the script resets unless you save to file.
+
+> Try to avoid matching with the globe frame itself, this will cause it to not change percentage with your health.
    
 
 ## Assign Scroll Locations
@@ -99,22 +105,47 @@
 ## Assign Gem Locations
 
 > In order to properly use the Gem-Swap function, you need to have two locations set to swap
-* Go to Configuration Tab > Inventory > Scroll and Gem Locations
-* Click Locate button for Current and Alternate Gem
-  * Press the Control button when you are directly in the center of each Gem.
+* Go to Per Character Settings > First/Second Swap
+* Click Locate button for position A and B
+  * Press the Control button when you are directly in the center of each Gem/Item.
+* Check Use as Item Swap if the first item to click is within your inventory, or an item on your character.
+* Check Swap Weapon for B if you want to weapon swap before switching with position B
+* First Swap will happen, then second depending on if there is a location assigned
+  * To disable either swap, put 0 into the location editboxes
 
    
 
 ## Assign Stash Tabs
 
 > In order to properly use the Inventory function to sort to stash tabs, you need to assign the number for each tab that matches the ingame list. From the top of the dropdown list for your stash tabs is position 1 going down to position 32.
-* Go to Configuration Tab > Inventory > Stash Tabs > Stash Management
+* Go to Configuration Tab > Inventory > Stash Tabs > Stash Tab Management
 * Select the assigned tab from the dropdown list
   * You can assign multiple types to the same stash tab
 * Check the box to enable or disable stashing that type of item
 
-> While you are in Inventory Settings, go to Stash Hotkeys tab to configure that as well, or disable it.
-* With default settings, Press Numpad0+Numpad1 to go to the first tab.
-* Press Numpad0+NumpadDot to reset the "Current Tab" internal index
-  * This makes the next hotkey open the dropdown list instead of using arrows
-  * This is useful when you have moved the tab from the scripts "Current Tab"
+## Affinity
+
+> The script supports all type of affinity. In order to use them, drag the slider to the right, and it will display "Enable Affinity"
+
+> Setting the slider to the middle, will allow you to manually select a tab without using affinity system
+
+> Setting the slider to the left, will disable that type of item from being stashed by the script.
+
+* Items with affinity enabled will not change the tab position when stashing
+* CLF entries, and other settings in the Stash Tab Management will override Affinity where there is overlap
+* Unique items are given special options which allow for filtering low rolled affixes
+  * Assign a value to Minimum Affix Percentage, and Check the box above it to enable this
+  * Affixes on the item will be evaluated against their maximum range, and given a percentage based on that.
+  * Unique Rings can be stashed in their own tab when they overflow from the Affinity
+  * The same for ALL uniques by enabling Unique Dump overflow
+  * Check the box Including Junk to also stash uniques that are below your set affix % if it is enabled
+    * The recommended combination is Unique Ring: Stash Overflow and Junk, Unique Dump: Stash Overflow only
+
+## Activating Functions
+
+> The script functions can now be enabled from within the Main tab of the GUI.
+
+* The main four functions of the script will display in the Active Functions section
+* When disabled, they will be gray. When enabled, they light up green
+* To toggle any of these main functions, click on its label
+* These can also be Toggled using a hotkey, which is assigned in the Hotkeys tab of the GUI

@@ -1,4 +1,5 @@
 * [About The Script](/main/wingmanreloaded)
+* [Installation](/installation)
 * [Documentation](/)
   - **Main GUI**
   * [Flasks Tab](/doc/flask)

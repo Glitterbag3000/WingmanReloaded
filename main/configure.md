@@ -505,7 +505,7 @@ Once you have gotten your background colors matching with the samples on the lis
 ## Chaos Recipe Automation
 Chaos recipe requires the configuration of your POE session ID, this can be retrieved by looking for the cookie within the developer console of your browser. You will need to paste this string into PoESessionID editbox found on the Configuration tab. 
 
-### Getting your POESESSID
+### Getting your POE Cookie
 In order to see this value, you need to [log into your account](https://www.pathofexile.com/)
 
 Once you have logged in, there are a few ways to look at the value:
@@ -513,11 +513,13 @@ Once you have logged in, there are a few ways to look at the value:
 #### Chrome
 
 * Press the F12 key.  
-* Select the "Application".  
-* Expand the "Cookies", select the https://www.pathofexile.com.  
-* Copy the value of the "POESESSID".
+* Select the "Network"  
+* Filter by "Doc", select https://www.pathofexile.com  
+* Scroll to Request Headers  
+* Find the cookie header  
+* Copy the entire line after "cookie: "  
 
-#### Firefox
+<!-- #### Firefox
 
 * Press the F12 key.  
 * Select the "Storage".  
@@ -531,12 +533,12 @@ Once you have logged in, there are a few ways to look at the value:
 * Enables the capture of network traffic.  
 * Reloads the page.  
 * Select [DETAILS]-[Cookies].  
-* Copy the value of the "POESESSID".  
+* Copy the value of the "POESESSID".   -->
 
 
-**Once you have the copy of your session ID, paste that into the Configuration > PoESessionID editfield.** 
+**Once you have the copy of your session ID, paste that into the Configuration > PoE Cookie editfield.** 
 
-> The ID will remain obscured, and shown as a password field. This is also saved to a separate Account.ini file to remain independent of the general settings.
+> The Cookie will remain obscured, and shown as a password field. This is also saved to a separate Cookie.json file to remain independent of the general settings.
 ### Enable the Chaos Recipe settings
 
 Once the ID is configured, we can enable the settings.  
