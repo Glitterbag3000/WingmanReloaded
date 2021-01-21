@@ -1,39 +1,45 @@
 ## Flasks
-> The core of the script is the flask routine. You are given several options in how you would like each flask slot triggered. Depending on the Character Type you have selected, different options of the interface will become available. Life type will have only life triggers active, ES will have only ES triggers active, and Hybrid will have both. 
-* The 5 Flasks are arranged in columns 
-  * Flask slot 1 is on the left and slot 5 on the right
-* Assign the duration the flask lasts (Cooldown)
-* Assign key(s) to press when the flask slot triggers
-* Check options in the column to enable a trigger type
-  * Choose between Life/ES, Mana, Quicksilver, or Attack keys
-* Choose whether each flask slot will be included in the Pop Flasks hotkey
+> The core of the script is the flask routine. You are given several options in how you would like each flask slot triggered. 
+* The 5 Flasks are given individual menus  
+  * Changes are saved when you close each flask menu  
+* Assign the duration the flask will be considered active  
+* Assign the group cooldown the flask will incur when using a flask group
+  * For flasks which do not share a group, setting to 1 will be sufficient  
+* Assign key(s) to press when the flask slot triggers  
+  * This can include multiple keys, as well as delayed actions
+  * Delayed actions are formated like "a \[300\](b)" or "\[300\](a) \[600\](b)"
+    * The first would fire "a" key, then "b" key after 300 ms
+    * The other would fire "a" key after 300 ms, then "b" key after 600 ms
+* Flasks can be given several triggers but will fire based on a priority  
+  * Generally they do not interact with each other, so multiple triggers are not recommended  
+  * Resource type triggers of Life, Mana, or ES can be mutually conditional with each other  
+    * Any type will fire when any match their condition  
+    * All type will fire when ALL resource conditions are matching 
+* Choose whether each flask slot will be included in the Pop Flasks hotkey  
+* Assign the 
 
-### Life Flasks
+### Flask Types
 
-> These flasks are best used with a Life trigger. Select the row matching the percentage to trigger. For example, to trigger when below 90% select the radio box at the top row.
+> For Life flasks, use the red slider to adjust the health trigger. Use the Life cooldown group, and set a shorter group cooldown than the duration of the flask for long flasks. Put higher priority flasks towards the left. 
 
-### Mana Flasks
+> For Mana flasks, use the dark blue slider to adjust the mana trigger. Use the mana cooldown group, and assign a longer duration than the group cooldown to ensure they properly que when using mutliple.  
 
-> These work best when assigned to the mana group. Select the threshold the mana will be considered triggered on the left. An alternative configuration is to use an attack key as the trigger. The Mana flask group will wait on cooldown together when any flask is active, and always cycles through each flask one at a time.
+> Buff Flasks work well when assigned with an attack key as trigger. Another option is using a Life/ES trigger, or saving these for the Pop Flasks hotkey.
 
-### Buff Flasks
-
-> These work well when assigned with an attack key as trigger. Another option is using a health trigger, or saving these for the Pop Flasks hotkey.
-
-### Quicksilver Flasks
-
-> Assign to the quicksilver group to use these when holding Left mouse button. These will always wait for the previous flask to finish before using the next. The Quicksilver flask group will wait on cooldown together when any flask is active, and always cycles through each flask one at a time.
+> Quicksilver flasks are best used with Movement trigger. When using multiple flasks, assign them to the Quicksilver group. Set their group cooldown to the duration of the flask, and the duration to longer than the group cooldown.
 
 ## Utility
 
-> This tab of the GUI allows for very flexible configurations of any ability or flask slot. It provides the triggers available to flasks as well as allowing the slot to be cast on cooldown, or associate with a buff icon.
+> This function of the script allows for very flexible configurations of any trigger types which can fire any key (ability or flask). It provides the triggers available to flasks as well as allowing the slot to be cast on cooldown, or associate with a buff icon.
 
 * This section is instead arranged in Rows, so each utility slot goes from left to right.
   * Utility slot 1 at the top and slot 10 at the bottom
-* Start by assigning a CD (in Milliseconds) and Key
-  * These allow for pressing several keys when triggered
-  * put the initial key first then space then the rest of the keys
-    * to trigger 1 then 3rt we can put "1 3rt" or "1 3 r t"
+* Start by assigning a CD (in Milliseconds)
+* Assign key(s) to press when the utility slot triggers  
+  * This can include multiple keys, as well as delayed actions
+  * Delayed actions are formated like "a \[300\](b)" or "\[300\](a) \[600\](b)"
+    * The first would fire "a" key, then "b" key after 300 ms
+    * The other would fire "a" key after 300 ms, then "b" key after 600 ms  
 * Check options in the row to enable a trigger type
   * Assign a buff icon to trigger when showing or not showing
   * Trigger alongside the Quicksilver flask group
