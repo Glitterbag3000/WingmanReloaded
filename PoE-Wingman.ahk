@@ -4949,9 +4949,9 @@ Return
                 }
                 Else if (CraftingMapMethod%i% == "Chisel+Alchemy")
                 {
-                  Loop, %numberChisel%
+                  ;Loop, %numberChisel%
                   {
-                    ApplyCurrency("Chisel",Grid.X,Grid.Y)
+                    ApplyChisel("Chisel",Grid.X,Grid.Y)
                   }
                   MapRoll(CraftingMapMethod%i%, Grid.X,Grid.Y)
                   Continue
@@ -4960,7 +4960,7 @@ Return
                 {
                   Loop, %numberChisel%
                   {
-                    ApplyCurrency("Chisel",Grid.X,Grid.Y)
+                    ApplyChisel("Chisel",Grid.X,Grid.Y)
                   }
                   MapRoll("Alchemy",Grid.X,Grid.Y)
                   ApplyCurrency("Vaal",Grid.X,Grid.Y)
@@ -5001,8 +5001,23 @@ Return
     Sleep, 45*Latency
     return
   }
-
-;
+  ; ApplyChisel - Using cname = currency name string and x, y as apply position
+  ApplyChisel(cname, x, y)
+  {
+	RightClick(WR.loc.pixel[cname].X, WR.loc.pixel[cname].Y)
+    Sleep, 45*Latency
+	Send {Shift down}
+    LeftClick(x,y)
+	Sleep, 5*Latency
+    LeftClick(x,y)
+	Sleep, 5*Latency
+    LeftClick(x,y)
+	Sleep, 5*Latency
+    LeftClick(x,y)
+	Sleep, 5*Latency
+	Send {Shift up}
+    return
+  }
 ; MapRoll - Apply currency/reroll on maps based on select undesireable mods
 ; -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   MapRoll(Method, x, y)
